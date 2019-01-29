@@ -23,7 +23,19 @@ router
 app
   .use(logger())
   .use(router.routes())
-  .use(router.allowedMethods())
-  .listen(PORT);
+  .use(router.allowedMethods());
 
+const server = require('http').createServer(app.callback());
+const io = require('socket.io')(server);
+
+io.on('connection', (socket) => {
+  console.log('connected');
+  socket
+    .on('io-ping', (msg) => {
+      console.log(`io-ping: ${msg}`);
+      socket.emit('io-pong', msg);
+    })
+})
+
+server.listen(PORT);
 console.log(`Server on localhost:${PORT}`);

@@ -1,1 +1,28 @@
 <h1>It Works!</h1>
+<p>
+  <b>Delay:&nbsp;</b>
+  <span id="delay" style="display:inline-block;width:20px;text-align:right">??</span>
+  <span>ms&nbsp;</span>
+  <button type="button" onclick="ping()">Ping</button>
+</p>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.slim.js"></script>
+<script>
+  // const url = 'http://localhost:3003';
+  const url = '/';
+  const socket = io(url, { path: '/node/socket.io' }); // important!
+  // See: https://medium.com/@spencerfeng/make-node-js-socket-io-angular-nginx-ssl-work-777404835e09
+
+  socket
+    .on('connect', (msg) => {
+      console.log('connected');
+    })
+    .on('io-pong', (msg) => {
+      console.log(msg);
+      const delay = Date.now() - parseInt(msg);
+      document.querySelector('#delay').innerHTML = delay;
+    })
+
+  function ping() {
+    socket.emit('io-ping', Date.now())
+  }
+</script>

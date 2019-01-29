@@ -86,3 +86,4 @@ typings/
 
 # End of https://www.gitignore.io/api/node
 docker-compose/nginx/nginx.conf
+docker-compose/node-demo-app/package-lock.json

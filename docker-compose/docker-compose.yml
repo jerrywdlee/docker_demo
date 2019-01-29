@@ -1,0 +1,12 @@
+version: '0.1.0'
+services:
+  #node-app:
+  #  container_name: node-app
+  #  depends_on:
+  #    - node-app
+  nginx:
+    image: nginx
+    #depends_on:
+    #  - node-app
+    ports:
+      - "8080:80"

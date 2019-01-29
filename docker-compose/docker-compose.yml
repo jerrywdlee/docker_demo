@@ -6,6 +6,10 @@ services:
   #    - node-app
   nginx:
     image: nginx
+    volumes:
+      #- ./nginx/conf.d:/etc/nginx/conf.d
+      - ./nginx/html:/usr/share/nginx/html
+
     #depends_on:
     #  - node-app
     ports:

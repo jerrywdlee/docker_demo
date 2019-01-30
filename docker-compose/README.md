@@ -21,6 +21,14 @@ docker exec -it docker-compose_nginx_1 bash
 docker exec -it node-app bash
 ```
 
+### Purge
+```sh
+# volumes
+docker volume prune
+# All
+docker system prune
+```
+
 ## URLs
 - http://localhost:8080/
 - http://localhost:8080/node/ <= Trailing slash needed

@@ -13,13 +13,17 @@
   // See: https://medium.com/@spencerfeng/make-node-js-socket-io-angular-nginx-ssl-work-777404835e09
 
   socket
-    .on('connect', (msg) => {
+    .on('connect', msg => {
       console.log('connected');
     })
-    .on('io-pong', (msg) => {
+    .on('io-pong', msg => {
       console.log(msg);
       const delay = Date.now() - parseInt(msg);
       document.querySelector('#delay').innerHTML = delay;
+    })
+    .on('key-expired', msg => {
+      console.log(msg);
+      alert(`key-expired: ${msg}`)
     })
 
   function ping() {

@@ -1,4 +1,4 @@
-version: '0.1.4'
+version: '2'
 services:
   node-app:
     image: node:10
@@ -8,7 +8,7 @@ services:
     container_name: node-app
     working_dir: /home/node/app
     volumes:
-      - ./node-demo-app:/home/node/app
+      - ./node-app:/home/node/app
     environment:
       - NODE_ENV=development
       - PORT=3040
@@ -18,9 +18,10 @@ services:
     #   - "3333:3040"
   nginx:
     image: nginx
+    container_name: nginx-app
     volumes:
-      - ./nginx/conf.d:/etc/nginx/conf.d
-      - ./nginx/html:/usr/share/nginx/html
+      - ./nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./nginx/html/index.html:/usr/share/nginx/html/index.html:ro
     links:
       - node-app
     ports:

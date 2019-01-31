@@ -16,7 +16,7 @@ docker-compose stop
 ### SSH
 ```sh
 # Nginx
-docker exec -it docker-compose_nginx_1 bash
+docker exec -it nginx-app bash
 # Node
 docker exec -it node-app bash
 ```

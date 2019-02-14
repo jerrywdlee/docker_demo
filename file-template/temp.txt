@@ -1,0 +1,2 @@
+This is ${USER}\\'s computer.
+Home directory is ${HOME}.

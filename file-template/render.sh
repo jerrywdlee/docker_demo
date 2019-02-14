@@ -25,12 +25,12 @@ do
   # `home: ${HOME}` => `$home: /Users/jerrylee`
 
   # echo $(eval echo "${line}")
-  # `# File Template Demo` => `` # maybe commented out
+  # `# File Template Demo` => `` # Blank, maybe commented out
   # `home: ${HOME}` => `home: /Users/jerrylee`
 
   # echo $(eval echo "''${line}")
-  # `# File Template Demo` => `$# File Template Demo`
-  # `home: ${HOME}` => `$home: /Users/jerrylee`
+  # `# File Template Demo` => `# File Template Demo`
+  # `home: ${HOME}` => `home: /Users/jerrylee`
 
   echo $(eval echo "''${line}") >> $RES_FILE
 done < $TEMP_FILE

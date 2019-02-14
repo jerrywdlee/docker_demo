@@ -1,5 +1,7 @@
 #!bin/sh
 
+# USAGE: `sh render.sh` will render `./template.conf.tpl` to `./template.conf`
+
 # template=$(cat ./template.conf.tpl)
 # echo "$template"
 # eval echo '$'$template

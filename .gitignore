@@ -88,3 +88,4 @@ typings/
 docker-compose/nginx/nginx.conf
 package-lock.json
 *.pem
+file-template/template.conf

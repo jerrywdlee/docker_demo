@@ -1,0 +1,13 @@
+version: '3.7'
+services:
+  puppeteer-s3:
+    container_name: puppeteer-s3 # APP名に指定
+    build:
+      context: ./ # Dockerfileは親Dir使えないため
+      dockerfile: ./Dockerfile
+    environment:
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
+      AWS_REGION: ${AWS_REGION}
+      AWS_BUCKET_NAME: ${AWS_BUCKET_NAME}
+    command: /bin/sh -c "npm start"

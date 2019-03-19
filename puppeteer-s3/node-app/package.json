@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
+    "dev": "eval $(cat ../.env) $(npm bin)/ts-node index.ts",
     "env": "printenv",
     "start": "ts-node index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -30,7 +30,5 @@ ADD ./node-app/index.ts /usr/local/src/app/index.ts
 ADD ./node-app/screenshot.ts /usr/local/src/app/screenshot.ts
 ADD ./node-app/aws-s3.ts /usr/local/src/app/aws-s3.ts
 
-RUN echo $PWD
-RUN echo $CHROME_BIN
-RUN printenv
-RUN ls -la
+# RUN printenv
+# RUN ls -la

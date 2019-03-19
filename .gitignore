@@ -89,3 +89,4 @@ docker-compose/nginx/nginx.conf
 package-lock.json
 *.pem
 file-template/template.conf
+puppeteer-s3/node-app/*.png

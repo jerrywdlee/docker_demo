@@ -11,6 +11,11 @@ RUN mkdir -p /run/openrc/ && touch /run/openrc/softlevel
 # SEE https://wiki.alpinelinux.org/wiki/Setting_up_a_ssh-server
 # https://blog.adachin.me/archives/4177
 
+# Enable Port Forwarding
+RUN sed -i 's/^AllowTcpForwarding no/AllowTcpForwarding yes/g' /etc/ssh/sshd_config
+RUN sed -i 's/^GatewayPorts no/GatewayPorts yes/g' /etc/ssh/sshd_config
+RUN sed -i 's/^X11Forwarding no/X11Forwarding yes/g' /etc/ssh/sshd_config
+
 RUN adduser -D ssh-user
 # It will cause an ssh login error if user has no password
 RUN echo "ssh-user:ssh-pass" | chpasswd

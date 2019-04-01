@@ -17,7 +17,4 @@ services:
       - "23030:3030"
       - "28000:8000"
       - "28080:8080"
-    # command: /bin/sh -c "/etc/init.d/sshd start && cat $HOME/.ssh/id_rsa && tail -f /dev/null"
-    # command: /bin/sh -c "cat /root/.ssh/id_rsa && tail -f /dev/null"
     command: /bin/sh -c "/etc/init.d/sshd start && tail -f /dev/null"
-    # command: /bin/sh -c "tail -f /dev/null"

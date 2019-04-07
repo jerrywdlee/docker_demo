@@ -1,0 +1,20 @@
+version: '3.7'
+services:
+  ssh-test:
+    # image: node:10.15.3-alpine
+    container_name: ssh-test
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    working_dir: /root
+    volumes:
+      - ./share:/root/share
+    ports:
+      - "20080:80"
+      - "20443:443"
+      - "20022:22"
+      - "23000:3000"
+      - "23030:3030"
+      - "28000:8000"
+      - "28080:8080"
+    command: /bin/sh -c "/etc/init.d/sshd start && tail -f /dev/null"
